@@ -31,6 +31,9 @@ class State:
     def printSmall(self):
         print("("+str(self.state[0][0])+" "+str(self.state[0][1])+" "+str(self.state[0][2])+" "+str(self.state[1][0])+" "+str(self.state[1][1])+" "+str(self.state[1][2])+" "+str(self.state[2][0])+" "+str(self.state[2][1])+" "+str(self.state[2][2])+")")
 
+    def stateString(self):
+        return "("+str(self.state[0][0])+" "+str(self.state[0][1])+" "+str(self.state[0][2])+" "+str(self.state[1][0])+" "+str(self.state[1][1])+" "+str(self.state[1][2])+" "+str(self.state[2][0])+" "+str(sel    f.state[2][1])+" "+str(self.state[2][2])+")"
+
 
     #nextNodes returns a tuple of all the possible 
     #next nodes in multidimensional arrays
