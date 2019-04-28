@@ -32,9 +32,10 @@ class State:
         print("("+str(self.state[0][0])+" "+str(self.state[0][1])+" "+str(self.state[0][2])+" "+str(self.state[1][0])+" "+str(self.state[1][1])+" "+str(self.state[1][2])+" "+str(self.state[2][0])+" "+str(self.state[2][1])+" "+str(self.state[2][2])+")")
 
 
-    #nextNodes returns a tuple of all the possible next nodes
+    #nextNodes returns a tuple of all the possible 
+    #next nodes in multidimensional arrays
     #total possible nodes vary from 2-4
-    #Ex. (8,1,2,3,4,5,6,7,0) returns ((8,1,2,3,4,0,6,7,5),(8,1,2,3,4,5,6,0,7))
+    #Ex. ([[8,1,2],[3,4,5],[6,7,0]]) returns (([[8,1,2],[3,4,0],[6,7,5]]),([[8,1,2],[3,4,5],[6,0,7]]))
     def nextNodes(self):
         if self.state[0][0]==0:
             return ([[self.state[0][1],self.state[0][0],self.state[0][2]],[self.state[1][0],self.state[1][1],self.state[1][2]],[self.state[2][0],self.state[2][1],self.state[2][2]]],
