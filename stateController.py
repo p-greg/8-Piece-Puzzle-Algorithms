@@ -32,7 +32,7 @@ class State:
         print("("+str(self.state[0][0])+" "+str(self.state[0][1])+" "+str(self.state[0][2])+" "+str(self.state[1][0])+" "+str(self.state[1][1])+" "+str(self.state[1][2])+" "+str(self.state[2][0])+" "+str(self.state[2][1])+" "+str(self.state[2][2])+")")
 
     def stateString(self):
-        return "("+str(self.state[0][0])+" "+str(self.state[0][1])+" "+str(self.state[0][2])+" "+str(self.state[1][0])+" "+str(self.state[1][1])+" "+str(self.state[1][2])+" "+str(self.state[2][0])+" "+str(sel    f.state[2][1])+" "+str(self.state[2][2])+")"
+        return "("+str(self.state[0][0])+" "+str(self.state[0][1])+" "+str(self.state[0][2])+" "+str(self.state[1][0])+" "+str(self.state[1][1])+" "+str(self.state[1][2])+" "+str(self.state[2][0])+" "+str(self.state[2][1])+" "+str(self.state[2][2])+")"
 
 
     #nextNodes returns a tuple of all the possible 
@@ -120,8 +120,19 @@ class heuristicOne(State):
 
 class heuristicTwo(State):
     def __hash__(self):
-        n = 0
+        manHat = 0
         for i in range(3):
             for j in range(3):
-                n+1
-        return n
+                x=(self.state[i-1][j-1]//3)+1
+                y=(self.state[i-1][j-1]+1)%3
+                if y==0:
+                    y=3
+                manHat+=abs(i-x)+abs(j-y)
+        return manHat
+    def __gt__(self,other):
+        if self.__hash__()>other.__hash__():
+            return True
+        elif self.__hash__()<other.__hash__():
+            return False
+        else:
+            return True
