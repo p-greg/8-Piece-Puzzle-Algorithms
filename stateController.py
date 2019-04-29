@@ -123,11 +123,11 @@ class heuristicTwo(State):
         manHat = 0
         for i in range(3):
             for j in range(3):
-                x=(self.state[i-1][j-1]//3)+1
-                y=(self.state[i-1][j-1]+1)%3
+                x=(self.state[i][j]//3)+1
+                y=(self.state[i][j]+1)%3
                 if y==0:
                     y=3
-                manHat+=abs(i-x)+abs(j-y)
+                manHat+=abs((i+1)-x)+abs((j+1)-y)
         return manHat
     def __gt__(self,other):
         if self.__hash__()>other.__hash__():
@@ -136,3 +136,44 @@ class heuristicTwo(State):
             return False
         else:
             return True
+
+class heuristicThree(State):
+    def __hash__(self):
+        n = 0
+        if not self.state[0][0]==0:
+            n+=1
+        if not self.state[0][1]==1:
+            n+=1
+        if not self.state[0][2]==2:
+            n+=1
+        if not self.state[1][0]==3:
+            n+=1
+        if not self.state[1][1]==4:
+            n+=1
+        if not self.state[1][2]==5:
+            n+=1
+        if not self.state[2][0]==6:
+            n+=1
+        if not self.state[2][1]==7:
+            n+=1
+        if not self.state[2][2]==8:
+            n+=1
+        manHat = 0
+        for i in range(3):
+            for j in range(3):
+                x=(self.state[i][j]//3)+1
+                y=(self.state[i][j]+1)%3
+                if y==0:
+                    y=3
+                manHat+=abs((i+1)-x)+abs((j+1)-y)
+        r = (manHat+n)/2
+        return r
+    def __gt__(self,other):
+        if self.__hash__()>other.__hash__():
+            return True
+        elif self.__hash__()<other.__hash__():
+            return False
+        else:
+            return True
+
+
