@@ -6,6 +6,7 @@ class State:
     parent=None
     children=[]
     cost=0
+    ID=0
 
     state = [[0,0,0],[0,0,0],[0,0,0]]
 
@@ -18,6 +19,9 @@ class State:
     #set the cost to get to this state
     def setCost(self, cost):
         self.cost=cost
+
+    def setID(self, ID):
+        self.ID=ID
 
     #                                   0 1 2 
     #                                   3 4 5
@@ -116,7 +120,10 @@ class heuristicOne(State):
         elif self.__hash__() < other.__hash__():
             return False
         else:
-            return True
+            if self.ID>other.ID:
+                return True
+            else:
+                return False
 
 class heuristicTwo(State):
     def __hash__(self):
@@ -135,7 +142,10 @@ class heuristicTwo(State):
         elif self.__hash__()<other.__hash__():
             return False
         else:
-            return True
+            if self.ID>other.ID:
+                return True
+            else:
+                return False
 
 class heuristicThree(State):
     def __hash__(self):
@@ -174,6 +184,8 @@ class heuristicThree(State):
         elif self.__hash__()<other.__hash__():
             return False
         else:
-            return True
-
+            if self.ID>other.ID:
+               return True
+            else:
+               return False
 
