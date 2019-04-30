@@ -13,6 +13,11 @@ Usage:
 	x4 x5 x6
 	x7 x8 x9
 
+Notes: 
+    
+    -After each time expanding 10000 states, the program will ask the user if they want to continue.
+    
+
 Modes:
    
     The different modes determine what algorithm and heuristic to use. 
