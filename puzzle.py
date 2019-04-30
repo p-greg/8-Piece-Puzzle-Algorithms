@@ -50,6 +50,7 @@ if mode%2==1:
 else:
     print("Best First Search")
     h.heappush(pQueue, (start.__hash__(), start))
+print() #for formatting
 
 #depending on the mode setting, use one of the 3 heuristic functions
 #and add the cost for A* search
@@ -67,17 +68,20 @@ while not current==goalState:
     current = pop[1]
     nextNodes = current.nextNodes()
 
-#   following for testing
+    #every 5000 nodes expanded print a update on the screen 
     if (expandedNodes%5000==0):
         print("Expanded Nodes: "+str(expandedNodes))
+    #every 10000 nodes expanded ask the user if they want to continue
     if (expandedNodes%10000==0):
-        print("I have looked at 20000 states and have not found a solution")
+        print("I have looked at "+str(expandedNodes)+" states and have not found a solution")
         print("I am going to start slowing down soon..")
         print("Would you like to keep going? [y/n]")
         userInput=input()
+        print()
         if userInput=='n':
             stopped=True
             break
+#        following used for testing purposes    
 #        print("Cost "+str(current.cost))
 #        print("Hash "+str(current.__hash__()))
 #        print("ID "+str(current.ID))
@@ -119,10 +123,12 @@ while not current==goalState:
                 h.heappush(pQueue, (child.__hash__(), child))
     expandedNodes+=1
     gc.collect()
+#if the user stopped the program exit before printing the path
 if stopped:
     print()
     print("I could not find a path.. sorry :(")
     sys.exit()
+
 finalPath = current.stateString()
 current.printState()
 print("^^^^^ Final State ^^^^^")
