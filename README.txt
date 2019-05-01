@@ -15,7 +15,7 @@ Usage:
 
 Notes: 
     
-    -After each time expanding 10000 states, the program will ask the user if they want to continue.
+    -After expanding 10000 states, the program will ask the user if they want to continue.
     
 
 Modes:
