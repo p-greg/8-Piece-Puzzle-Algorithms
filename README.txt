@@ -15,20 +15,20 @@ Usage:
 
 Notes: 
     
-    -After each time expanding 10000 states, the program will ask the user if they want to continue.
+    -After expanding 10000 states, the program will ask the user if they want to continue.
     
 
 Modes:
-   
+         
     The different modes determine what algorithm and heuristic to use. 
     Heuristic information avaliable below the examples.
         
-        Mode 0: Best First Search Algorithm with Heuristic One
-        Mode 1: A* Search Algorithm with Heuristic One
-        Mode 2: Best First Search Algorithm with Heuristic Two
-        Mode 3: A* Search Algoritm with Heuristic Two
-        Mode 4: Best First Search Algorithm with Heuristic Three
-        Mode 5: A* Search Algorithm with Heurisitc Three
+        0 : Best First Search Algorithm with Heuristic One
+        1 : A* Search Algorithm with Heuristic One
+        2 : Best First Search Algorithm with Heuristic Two
+        3 : A* Search Algoritm with Heuristic Two
+        4 : Best First Search Algorithm with Heuristic Three
+        5 : A* Search Algorithm with Heurisitc Three
     
 Examples:
 
