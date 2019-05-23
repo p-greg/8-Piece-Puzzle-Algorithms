@@ -30,6 +30,15 @@ else:
     #random start state 
     start = sc.heuristicOne([[7,2,3],[8,4,5],[0,1,6]])
 
+#check if the inputted state is solvable
+if not start.solvable():
+    print()
+    print("This state is not solvable.")
+    start.printState()
+    print("Please try another configuration of the board.")
+    print()
+    sys.exit()
+
 #-- create the states
 current = sc.heuristicOne([[0,0,0],[0,0,0],[0,0,0]])
 child = sc.heuristicOne([[0,0,0],[0,0,0],[0,0,0]])

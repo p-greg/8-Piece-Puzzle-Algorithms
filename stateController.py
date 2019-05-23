@@ -82,6 +82,24 @@ class State:
     def __eq__(self,other):
         return self.state == other.state
 
+    #check a state is solvable 
+    def solvable(self):
+        total=0
+        for i in range(8):
+            step = i+1
+            row = i//3
+            col = i%3
+            value = int(self.state[row][col])
+            for j in range(i+1,9):
+                row2 = j//3
+                col2 = j%3
+                value2 = self.state[row2][col2]
+                if not value2==0 and value2<value:
+                    total+=1
+        if total%2==0:
+            return True
+        else:
+            return False
 
     def addChild(self,child):
         self.children.append(child)
